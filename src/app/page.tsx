@@ -41,7 +41,8 @@ export default function Home() {
     try {
       const response = await searchProfiles(username);
       setProfiles(response.data.values);
-    } catch (err) {
+    } catch (error) {
+      console.error('Search failed:', error);
       setError('搜索失败，请稍后重试');
     } finally {
       setLoading(false);
